@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import joblib
 
-# Correct path to the trained model serialized inside the deployment folder
+# Path to the trained model serialized inside the deployment folder
 model_path = os.path.join(os.path.dirname(__file__), "best_engine_failure_prediction_model_v1.joblib")
 model = joblib.load(model_path)
 
@@ -21,7 +21,7 @@ lub_oil_temp = st.number_input("Lubricating Oil Temperature (°C)", value=85.0, 
 coolant_temp = st.number_input("Coolant Temperature (°C)", value=80.0, step=0.5)
 
 if st.button("Predict Engine Status"):
-    # 1. Align column names with the standard snake_case expected by our preparation/model pipeline
+    # 1. Aligning column names with the standard snake_case expected by our preparation/model pipeline
     input_data = pd.DataFrame({
         "engine_rpm": [engine_rpm],
         "lub_oil_pressure": [lub_oil_pressure],
